@@ -4,37 +4,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const successParagraph = resultsDiv.querySelector('p:first-of-type');
     const throwResultsDiv = document.querySelector('.throwResults');
     const rollAgainButton = document.querySelector('button');
+    const warningText = document.createElement('p');
+    warningText.style.color = 'red';
+    form.insertBefore(warningText, form.firstChild);
+
+    resultsDiv.style.display = 'none';
 
     let lastSuccessRolls = [];
+    let hasRolledOnce = false;
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        rollDice();
+        warningText.textContent = '';
+        const diceCount = parseInt(document.getElementById('dice').value, 10);
+        const numberOfSides = parseInt(document.getElementById('sides').value, 10);
+        const successConditionElement = document.querySelector('input[name="succes"]:checked');
+        const successValue = parseInt(document.getElementById('succes').value, 10);
+
+        if (diceCount < 0 || numberOfSides < 0 || successValue < 0) {
+            warningText.textContent = 'Numbers cannot be negative.';
+            return;
+        }
+
+        if (isNaN(diceCount) || isNaN(numberOfSides) || isNaN(successValue) || !successConditionElement) {
+            warningText.textContent = 'Please fill in all the fields correctly and select a success condition.';
+            return;
+        }
+
+        const successCondition = successConditionElement.value;
+
+        if (!hasRolledOnce) {
+            resultsDiv.style.display = 'block';
+            hasRolledOnce = true;
+        }
+
+        rollDice(diceCount);
     });
 
     rollAgainButton.addEventListener('click', (e) => {
         e.preventDefault();
         if (lastSuccessRolls.length > 0) {
             rollDice(lastSuccessRolls.length, true);
+        } else {
+            const diceCount = parseInt(document.getElementById('dice').value, 10);
+            rollDice(diceCount);
         }
     });
 
-    function rollDice(numberOfDice = null, isReroll = false) {
-        const diceCount = numberOfDice || parseInt(document.getElementById('dice').value, 10);
+    function rollDice(numberOfDice, isReroll = false) {
         const numberOfSides = parseInt(document.getElementById('sides').value, 10);
         const successCondition = document.querySelector('input[name="succes"]:checked').value;
         const successValue = parseInt(document.getElementById('succes').value, 10);
-
-        if (isNaN(diceCount) || isNaN(numberOfSides) || isNaN(successValue)) {
-            alert('Please fill in all the fields correctly.');
-            return;
-        }
 
         let successCount = 0;
         const sideCounts = Array(numberOfSides).fill(0);
         lastSuccessRolls = [];
 
-        for (let i = 0; i < diceCount; i++) {
+        for (let i = 0; i < numberOfDice; i++) {
             const roll = Math.floor(Math.random() * numberOfSides) + 1;
             sideCounts[roll - 1]++;
 
@@ -46,10 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        if (!isReroll) {
-            successParagraph.textContent = `${successCount} successful rolls`;
-            updateThrowResults(sideCounts);
-        }
+        successParagraph.textContent = `${successCount} successful rolls`;
+        updateThrowResults(sideCounts);
     }
 
     function updateThrowResults(sideCounts) {
