@@ -85,4 +85,24 @@ document.addEventListener('DOMContentLoaded', () => {
             throwResultsDiv.appendChild(resultElement);
         });
     }
+
+    function wrapNumbers(element) {
+        element.childNodes.forEach(function(node) {
+            if (node.nodeType === 3) {
+                const newHtml = node.nodeValue.replace(/(\d+)/g, '<span class="number">$1</span>');
+                if (newHtml !== node.nodeValue) {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = newHtml;
+                    while (tempDiv.firstChild) {
+                        node.parentNode.insertBefore(tempDiv.firstChild, node);
+                    }
+                    node.parentNode.removeChild(node);
+                }
+            } else if (node.nodeType === 1) {
+                wrapNumbers(node);
+            }
+        });
+    }
+
+    wrapNumbers(document.body);
 });

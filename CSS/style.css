@@ -1,4 +1,10 @@
+@font-face {
+    font-family: "Warhammer";
+    src: url('../FONT/Warhammer.woff') format('woff');
+}
+
 body {
+    font-family: "Warhammer", sans-serif;
     background-image: url(../IMG/background.webp);
     background-attachment: fixed;
     background-size: cover;
@@ -8,4 +14,13 @@ body {
 
 main {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10rem 25rem 10rem 25rem;
+    padding: 10rem 5rem 10rem 5rem;
+}
+
+.number {
+    font-family: Arial, sans-serif;
 }
