@@ -1,0 +1,11 @@
+body {
+    background-image: url(../IMG/background.webp);
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+main {
+    background-color: white;
+}
