@@ -1,3 +1,4 @@
+// My own version of the code
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
     form.addEventListener('submit', (e) => {

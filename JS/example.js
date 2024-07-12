@@ -1,3 +1,4 @@
+// AI-Generated version of the code
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
     const resultsDiv = document.querySelector('.results');
