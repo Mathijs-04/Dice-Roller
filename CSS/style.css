@@ -19,9 +19,14 @@ main {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
-    margin: 0 25rem 10rem 25rem;
+    align-items: center;
     padding: 10rem 5rem 10rem 5rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: -3rem;
 }
 
 .parchment {
