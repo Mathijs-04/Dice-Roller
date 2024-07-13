@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isNaN(diceCount) || isNaN(numberOfSides) || isNaN(successValue) || !successConditionElement) {
-            warningText.textContent = 'Please fill in all the fields correctly and select a success condition.';
+            warningText.textContent = 'Please fill all the fields correctly';
             return;
         }
 

@@ -1,3 +1,5 @@
+/* TO-DO: Add media queries for smaller devices */
+
 @font-face {
     font-family: "Warhammer";
     src: url('../FONT/Warhammer.woff') format('woff');
@@ -29,6 +31,16 @@ h1 {
     margin-top: -3rem;
 }
 
+h2 {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+label {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
 .parchment {
     position: absolute;
     z-index: -1;
@@ -44,4 +56,12 @@ h1 {
     height: 20rem;
     margin-top: 39rem;
     margin-left: 70rem;
+}
+
+input {
+    font-family: "Warhammer", sans-serif;
+    font-size: 1rem;
+    background-image: url("../IMG/input.webp");
+    border-radius: 0.4rem;
+    border-color: black;
 }
