@@ -64,4 +64,51 @@ input {
     background-image: url("../IMG/input.webp");
     border-radius: 0.4rem;
     border-color: black;
+    margin-bottom: 1rem;
+}
+
+#dice {
+    margin-left: 1rem;
+}
+
+#sides {
+    margin-left: 0.6rem;
+}
+
+#succes {
+    margin-left: 2.85rem;
+}
+
+.submitContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+#submit, #reroll {
+    background-image: url("../IMG/fire.webp");
+    font-size: 1.5rem;
+    width: 10rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: black 0.1rem solid;
+    transition: all 0.75s ease-out;
+}
+
+#submit:hover {
+    background-image: url("../IMG/fire.gif");
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: orangered;
+    border-radius: 0.2rem;
+    border: orangered 0.1rem solid;
+}
+
+#reroll:hover {
+    background-image: url("../IMG/fire.gif");
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: orangered;
+    border-radius: 0.2rem;
+    border: orangered 0.1rem solid;
 }
