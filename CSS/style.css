@@ -86,29 +86,21 @@ input {
 }
 
 #submit, #reroll {
-    background-image: url("../IMG/fire.webp");
+    background-image: url("../IMG/input.webp");
     font-size: 1.5rem;
     width: 10rem;
     padding: 0.5rem;
     border-radius: 0.2rem;
     border: black 0.1rem solid;
-    transition: all 0.75s ease-out;
 }
 
-#submit:hover {
-    background-image: url("../IMG/fire.gif");
+#submit:hover, #reroll:hover {
+    background-image: url("../IMG/input.webp");
+    color: white;
     font-size: 1.5rem;
+    width: 10rem;
     padding: 0.5rem;
-    color: orangered;
     border-radius: 0.2rem;
-    border: orangered 0.1rem solid;
+    border: white 0.1rem solid;
 }
 
-#reroll:hover {
-    background-image: url("../IMG/fire.gif");
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    color: orangered;
-    border-radius: 0.2rem;
-    border: orangered 0.1rem solid;
-}
