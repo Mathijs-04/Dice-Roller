@@ -138,3 +138,14 @@ input[type="radio"]:checked + label {
     margin-top: 1rem;
 }
 
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-left: -16.5rem;
+}
+
+.results p {
+    font-size: 1.25rem;
+}
+
