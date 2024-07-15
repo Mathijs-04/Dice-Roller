@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const radioButtonsContainer = document.querySelector('.radioButtons');
     const sidesInput = document.getElementById('sides');
     const parchment = document.querySelector('.parchment');
+    const seal = document.querySelector('.seal');
 
     warningText.className = 'errorMessage';
     resultsDiv.style.display = 'none';
@@ -44,6 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const additionalHeightPerSide = 2.75;
         const newHeight = baseHeight + (numberOfSides * additionalHeightPerSide);
         parchment.style.height = `${newHeight}rem`;
+
+        const sealMarginTopBase = 39;
+        const sealAdditionalMarginPerSide = 2.75;
+        const newSealMarginTop = sealMarginTopBase + (numberOfSides * sealAdditionalMarginPerSide);
+        seal.style.marginTop = `${newSealMarginTop}rem`;
 
         rollDice(diceCount);
     });
