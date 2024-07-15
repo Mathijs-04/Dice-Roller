@@ -13,7 +13,6 @@ body {
     position: relative;
     margin: 0;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 main {
@@ -28,7 +27,7 @@ main {
 h1 {
     text-align: center;
     font-size: 2.5rem;
-    margin-top: -3rem;
+    margin-top: -1rem;
 }
 
 h2 {
@@ -141,8 +140,7 @@ input[type="radio"]:checked + label {
 .results {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    margin-left: -16.5rem;
+    text-align: center;
 }
 
 .results p {

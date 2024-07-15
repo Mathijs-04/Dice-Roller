@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const throwResultsDiv = document.querySelector('.throwResults');
     const warningText = document.createElement('p');
     const radioButtonsContainer = document.querySelector('.radioButtons');
+    const sidesInput = document.getElementById('sides');
+    const parchment = document.querySelector('.parchment');
 
     warningText.className = 'errorMessage';
     resultsDiv.style.display = 'none';
@@ -38,6 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
             hasRolledOnce = true;
         }
 
+        const baseHeight = 55;
+        const additionalHeightPerSide = 2.75;
+        const newHeight = baseHeight + (numberOfSides * additionalHeightPerSide);
+        parchment.style.height = `${newHeight}rem`;
+
         rollDice(diceCount);
     });
 
@@ -68,10 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateThrowResults(sideCounts) {
         throwResultsDiv.innerHTML = '';
+        let currentRow;
+        let counter = 0;
+
         sideCounts.forEach((count, index) => {
+            if (counter % 5 === 0) {
+                currentRow = document.createElement('div');
+                currentRow.className = 'resultsRow';
+            }
+
             const resultElement = document.createElement('p');
             resultElement.textContent = `Side ${index + 1}: ${count} times`;
-            throwResultsDiv.appendChild(resultElement);
+            currentRow.appendChild(resultElement);
+
+            counter++;
+
+            if (counter % 5 === 0 || index === sideCounts.length - 1) {
+                throwResultsDiv.appendChild(currentRow);
+            }
         });
     }
 });
