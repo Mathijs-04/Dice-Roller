@@ -1,10 +1,8 @@
-// AI-Generated version of the code
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
     const resultsDiv = document.querySelector('.results');
     const successParagraph = resultsDiv.querySelector('p:first-of-type');
     const throwResultsDiv = document.querySelector('.throwResults');
-    const rollAgainButton = document.querySelector('button');
     const warningText = document.createElement('p');
     const radioButtonsContainer = document.querySelector('.radioButtons');
 
@@ -12,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsDiv.style.display = 'none';
 
     radioButtonsContainer.insertAdjacentElement('afterend', warningText);
-
     let lastSuccessRolls = [];
     let hasRolledOnce = false;
 
@@ -44,17 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         rollDice(diceCount);
     });
 
-    rollAgainButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (lastSuccessRolls.length > 0) {
-            rollDice(lastSuccessRolls.length, true);
-        } else {
-            const diceCount = parseInt(document.getElementById('dice').value, 10);
-            rollDice(diceCount);
-        }
-    });
-
-    function rollDice(numberOfDice, isReroll = false) {
+    function rollDice(numberOfDice) {
         const numberOfSides = parseInt(document.getElementById('sides').value, 10);
         const successCondition = document.querySelector('input[name="succes"]:checked').value;
         const successValue = parseInt(document.getElementById('succes').value, 10);
@@ -71,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 (successCondition === 'lower' && roll <= successValue) ||
                 (successCondition === 'only' && roll === successValue)) {
                 successCount++;
-                if (isReroll) lastSuccessRolls.push(roll);
+                lastSuccessRolls.push(roll);
             }
         }
 
