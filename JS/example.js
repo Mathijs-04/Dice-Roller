@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const throwResultsDiv = document.querySelector('.throwResults');
     const rollAgainButton = document.querySelector('button');
     const warningText = document.createElement('p');
-    warningText.style.color = 'red';
-    form.insertBefore(warningText, form.firstChild);
+    const radioButtonsContainer = document.querySelector('.radioButtons');
 
+    warningText.className = 'errorMessage';
     resultsDiv.style.display = 'none';
+
+    radioButtonsContainer.insertAdjacentElement('afterend', warningText);
 
     let lastSuccessRolls = [];
     let hasRolledOnce = false;

@@ -132,3 +132,9 @@ input[type="radio"]:checked + label {
     color: white;
 }
 
+.errorMessage {
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
