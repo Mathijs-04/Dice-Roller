@@ -104,3 +104,31 @@ input {
     border: white 0.1rem solid;
 }
 
+.radioButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -1rem;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    padding: 5px 10px;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+input[type="radio"] + label:hover {
+    padding: 5px 10px;
+    border-radius: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+input[type="radio"]:checked + label {
+    text-decoration: underline;
+    color: white;
+}
+
