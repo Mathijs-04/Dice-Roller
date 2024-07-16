@@ -29,6 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        if (diceCount > 10000) {
+            warningText.textContent = 'Number of Dice cannot exceed 10000';
+            return;
+        }
+
+        if (numberOfSides > 100) {
+            warningText.textContent = 'Number of Sides cannot exceed 100';
+            return;
+        }
+
         if (isNaN(diceCount) || isNaN(numberOfSides) || isNaN(successValue) || !successConditionElement) {
             warningText.textContent = 'Please fill all the fields correctly';
             return;
