@@ -56,14 +56,22 @@ document.addEventListener('DOMContentLoaded', () => {
             hasRolledOnce = true;
         }
 
-        const baseHeight = 55;
-        const additionalHeightPerSide = 2.75;
-        const newHeight = baseHeight + (numberOfSides * additionalHeightPerSide);
-        parchment.style.height = `${newHeight}rem`;
+        let baseHeight = 55;
+        let additionalHeightPerSide = 2.75;
+        let newHeight = baseHeight + (numberOfSides * additionalHeightPerSide);
 
-        const sealMarginTopBase = 39;
-        const sealAdditionalMarginPerSide = 2.75;
-        const newSealMarginTop = sealMarginTopBase + (numberOfSides * sealAdditionalMarginPerSide);
+        let sealMarginTopBase = 39;
+        let sealAdditionalMarginPerSide = 2.75;
+        let newSealMarginTop = sealMarginTopBase + (numberOfSides * sealAdditionalMarginPerSide);
+
+        if (window.innerWidth < 800) {
+            additionalHeightPerSide = 4;
+            sealAdditionalMarginPerSide = 3.85;
+            newHeight = baseHeight + (numberOfSides * additionalHeightPerSide);
+            newSealMarginTop = sealMarginTopBase + (numberOfSides * sealAdditionalMarginPerSide);
+        }
+
+        parchment.style.height = `${newHeight}rem`;
         seal.style.marginTop = `${newSealMarginTop}rem`;
 
         rollDice(diceCount);
