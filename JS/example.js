@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        if (successValue > numberOfSides) {
+            warningText.textContent = 'Successful roll exceeds number of sides.';
+            return;
+        }
+
         if (isNaN(diceCount) || isNaN(numberOfSides) || isNaN(successValue) || !successConditionElement) {
             warningText.textContent = 'Please fill all the fields correctly';
             return;
