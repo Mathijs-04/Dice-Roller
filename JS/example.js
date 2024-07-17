@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let newSealMarginTop = sealMarginTopBase + (numberOfSides * sealAdditionalMarginPerSide);
 
         if (window.innerWidth < 800) {
+            baseHeight = 75;
+            sealMarginTopBase = 60;
             additionalHeightPerSide = 4;
             sealAdditionalMarginPerSide = 3.85;
             newHeight = baseHeight + (numberOfSides * additionalHeightPerSide);
