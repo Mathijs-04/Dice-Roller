@@ -144,3 +144,72 @@ input[type="radio"]:checked + label {
     font-size: 1.25rem;
 }
 
+@media only screen and (max-width: 800px) {
+    body {
+        zoom: 0.65;
+    }
+
+    .parchment {
+        margin-left: 18%;
+    }
+
+    .seal {
+        margin-left: 50rem;
+    }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+    body {
+        zoom: 0.65;
+    }
+
+    .parchment {
+        margin-left: 26%;
+    }
+
+    .seal {
+        margin-left: 60rem;
+    }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1824px) {
+    body {
+        zoom: 0.75;
+    }
+
+    .parchment {
+        margin-left: 28%;
+    }
+
+    .seal {
+        margin-left: 70rem;
+    }
+}
+
+@media only screen and (min-width: 1825px) and (max-width: 2560px) {
+    body {
+        zoom: 1;
+    }
+
+    .parchment {
+        margin-left: 30%;
+    }
+
+    .seal {
+        margin-left: 70rem;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    body {
+        zoom: 1.5;
+    }
+
+    .parchment {
+        margin-left: 28%;
+    }
+
+    .seal {
+        margin-left: 65rem;
+    }
+}
